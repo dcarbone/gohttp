@@ -1,10 +1,13 @@
-<?php namespace DCarbone\Go\HTTP;
+<?php declare(strict_types=1);
+
+namespace DCarbone\Go\HTTP;
 
 /**
  * Class HTTP
  * @package DCarbone\Go\HTTP
  */
-class HTTP {
+class HTTP
+{
     const StatusContinue           = 100; // RFC 7231, 6.2.1
     const StatusSwitchingProtocols = 101; // RFC 7231, 6.2.2
     const StatusProcessing         = 102; // RFC 2518, 10.1
@@ -69,6 +72,16 @@ class HTTP {
     const StatusLoopDetected                  = 508; // RFC 5842, 7.2
     const StatusNotExtended                   = 510; // RFC 2774, 7
     const StatusNetworkAuthenticationRequired = 511; // RFC 6585, 6
+
+    const MethodGet     = 'GET';
+    const MethodHead    = 'HEAD';
+    const MethodPost    = 'POST';
+    const MethodPut     = 'PUT';
+    const MethodPatch   = 'PATCH';
+    const MethodDelete  = 'DELETE';
+    const MethodConnect = 'CONNECT';
+    const MethodOptions = 'OPTIONS';
+    const MethodTrace   = 'TRACE';
 
     /** @var array */
     private static $statusTexts = [
@@ -142,7 +155,8 @@ class HTTP {
      * @param int $status
      * @return string
      */
-    public static function StatusText(int $status): string {
+    public static function StatusText(int $status): string
+    {
         return self::$statusTexts[$status] ?? '';
     }
 }
