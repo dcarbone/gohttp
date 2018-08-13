@@ -8,155 +8,87 @@ namespace DCarbone\Go\HTTP;
  */
 class HTTP
 {
-    const StatusContinue           = 100; // RFC 7231, 6.2.1
-    const StatusSwitchingProtocols = 101; // RFC 7231, 6.2.2
-    const StatusProcessing         = 102; // RFC 2518, 10.1
+    const StatusContinue           = \DCarbone\Go\HTTP\StatusContinue;
+    const StatusSwitchingProtocols = \DCarbone\Go\HTTP\StatusSwitchingProtocols;
+    const StatusProcessing         = \DCarbone\Go\HTTP\StatusProcessing;
 
-    const StatusOK                   = 200; // RFC 7231, 6.3.1
-    const StatusCreated              = 201; // RFC 7231, 6.3.2
-    const StatusAccepted             = 202; // RFC 7231, 6.3.3
-    const StatusNonAuthoritativeInfo = 203; // RFC 7231, 6.3.4
-    const StatusNoContent            = 204; // RFC 7231, 6.3.5
-    const StatusResetContent         = 205; // RFC 7231, 6.3.6
-    const StatusPartialContent       = 206; // RFC 7233, 4.1
-    const StatusMultiStatus          = 207; // RFC 4918, 11.1
-    const StatusAlreadyReported      = 208; // RFC 5842, 7.1
-    const StatusIMUsed               = 226; // RFC 3229, 10.4.1
+    const StatusOK                   = \DCarbone\Go\HTTP\StatusOK;
+    const StatusCreated              = \DCarbone\Go\HTTP\StatusCreated;
+    const StatusAccepted             = \DCarbone\Go\HTTP\StatusAccepted;
+    const StatusNonAuthoritativeInfo = \DCarbone\Go\HTTP\StatusNonAuthoritativeInfo;
+    const StatusNoContent            = \DCarbone\Go\HTTP\StatusNoContent;
+    const StatusResetContent         = \DCarbone\Go\HTTP\StatusResetContent;
+    const StatusPartialContent       = \DCarbone\Go\HTTP\StatusPartialContent;
+    const StatusMultiStatus          = \DCarbone\Go\HTTP\StatusMultiStatus;
+    const StatusAlreadyReported      = \DCarbone\Go\HTTP\StatusAlreadyReported;
+    const StatusIMUsed               = \DCarbone\Go\HTTP\StatusIMUsed;
 
-    const StatusMultipleChoices  = 300; // RFC 7231, 6.4.1
-    const StatusMovedPermanently = 301; // RFC 7231, 6.4.2
-    const StatusFound            = 302; // RFC 7231, 6.4.3
-    const StatusSeeOther         = 303; // RFC 7231, 6.4.4
-    const StatusNotModified      = 304; // RFC 7232, 4.1
-    const StatusUseProxy         = 305; // RFC 7231, 6.4.5
+    const StatusMultipleChoices  = \DCarbone\Go\HTTP\StatusMultipleChoices;
+    const StatusMovedPermanently = \DCarbone\Go\HTTP\StatusMovedPermanently;
+    const StatusFound            = \DCarbone\Go\HTTP\StatusFound;
+    const StatusSeeOther         = \DCarbone\Go\HTTP\StatusSeeOther;
+    const StatusNotModified      = \DCarbone\Go\HTTP\StatusNotModified;
+    const StatusUseProxy         = \DCarbone\Go\HTTP\StatusUseProxy;
 
-    const StatusTemporaryRedirect = 307; // RFC 7231, 6.4.7
-    const StatusPermanentRedirect = 308; // RFC 7538, 3
+    const StatusTemporaryRedirect = \DCarbone\Go\HTTP\StatusTemporaryRedirect;
+    const StatusPermanentRedirect = \DCarbone\Go\HTTP\StatusPermanentRedirect;
 
-    const StatusBadRequest                   = 400; // RFC 7231, 6.5.1
-    const StatusUnauthorized                 = 401; // RFC 7235, 3.1
-    const StatusPaymentRequired              = 402; // RFC 7231, 6.5.2
-    const StatusForbidden                    = 403; // RFC 7231, 6.5.3
-    const StatusNotFound                     = 404; // RFC 7231, 6.5.4
-    const StatusMethodNotAllowed             = 405; // RFC 7231, 6.5.5
-    const StatusNotAcceptable                = 406; // RFC 7231, 6.5.6
-    const StatusProxyAuthRequired            = 407; // RFC 7235, 3.2
-    const StatusRequestTimeout               = 408; // RFC 7231, 6.5.7
-    const StatusConflict                     = 409; // RFC 7231, 6.5.8
-    const StatusGone                         = 410; // RFC 7231, 6.5.9
-    const StatusLengthRequired               = 411; // RFC 7231, 6.5.10
-    const StatusPreconditionFailed           = 412; // RFC 7232, 4.2
-    const StatusRequestEntityTooLarge        = 413; // RFC 7231, 6.5.11
-    const StatusRequestURITooLong            = 414; // RFC 7231, 6.5.12
-    const StatusUnsupportedMediaType         = 415; // RFC 7231, 6.5.13
-    const StatusRequestedRangeNotSatisfiable = 416; // RFC 7233, 4.4
-    const StatusExpectationFailed            = 417; // RFC 7231, 6.5.14
-    const StatusTeapot                       = 418; // RFC 7168, 2.3.3
-    const StatusUnprocessableEntity          = 422; // RFC 4918, 11.2
-    const StatusLocked                       = 423; // RFC 4918, 11.3
-    const StatusFailedDependency             = 424; // RFC 4918, 11.4
-    const StatusUpgradeRequired              = 426; // RFC 7231, 6.5.15
-    const StatusPreconditionRequired         = 428; // RFC 6585, 3
-    const StatusTooManyRequests              = 429; // RFC 6585, 4
-    const StatusRequestHeaderFieldsTooLarge  = 431; // RFC 6585, 5
-    const StatusUnavailableForLegalReasons   = 451; // RFC 7725, 3
+    const StatusBadRequest                   = \DCarbone\Go\HTTP\StatusBadRequest;
+    const StatusUnauthorized                 = \DCarbone\Go\HTTP\StatusUnauthorized;
+    const StatusPaymentRequired              = \DCarbone\Go\HTTP\StatusPaymentRequired;
+    const StatusForbidden                    = \DCarbone\Go\HTTP\StatusForbidden;
+    const StatusNotFound                     = \DCarbone\Go\HTTP\StatusNotFound;
+    const StatusMethodNotAllowed             = \DCarbone\Go\HTTP\StatusMethodNotAllowed;
+    const StatusNotAcceptable                = \DCarbone\Go\HTTP\StatusNotAcceptable;
+    const StatusProxyAuthRequired            = \DCarbone\Go\HTTP\StatusProxyAuthRequired;
+    const StatusRequestTimeout               = \DCarbone\Go\HTTP\StatusRequestTimeout;
+    const StatusConflict                     = \DCarbone\Go\HTTP\StatusConflict;
+    const StatusGone                         = \DCarbone\Go\HTTP\StatusGone;
+    const StatusLengthRequired               = \DCarbone\Go\HTTP\StatusLengthRequired;
+    const StatusPreconditionFailed           = \DCarbone\Go\HTTP\StatusPreconditionFailed;
+    const StatusRequestEntityTooLarge        = \DCarbone\Go\HTTP\StatusRequestEntityTooLarge;
+    const StatusRequestURITooLong            = \DCarbone\Go\HTTP\StatusRequestURITooLong;
+    const StatusUnsupportedMediaType         = \DCarbone\Go\HTTP\StatusUnsupportedMediaType;
+    const StatusRequestedRangeNotSatisfiable = \DCarbone\Go\HTTP\StatusRequestedRangeNotSatisfiable;
+    const StatusExpectationFailed            = \DCarbone\Go\HTTP\StatusExpectationFailed;
+    const StatusTeapot                       = \DCarbone\Go\HTTP\StatusTeapot;
+    const StatusUnprocessableEntity          = \DCarbone\Go\HTTP\StatusUnprocessableEntity;
+    const StatusLocked                       = \DCarbone\Go\HTTP\StatusLocked;
+    const StatusFailedDependency             = \DCarbone\Go\HTTP\StatusFailedDependency;
+    const StatusUpgradeRequired              = \DCarbone\Go\HTTP\StatusUpgradeRequired;
+    const StatusPreconditionRequired         = \DCarbone\Go\HTTP\StatusPreconditionRequired;
+    const StatusTooManyRequests              = \DCarbone\Go\HTTP\StatusTooManyRequests;
+    const StatusRequestHeaderFieldsTooLarge  = \DCarbone\Go\HTTP\StatusRequestHeaderFieldsTooLarge;
+    const StatusUnavailableForLegalReasons   = \DCarbone\Go\HTTP\StatusUnavailableForLegalReasons;
 
-    const StatusInternalServerError           = 500; // RFC 7231, 6.6.1
-    const StatusNotImplemented                = 501; // RFC 7231, 6.6.2
-    const StatusBadGateway                    = 502; // RFC 7231, 6.6.3
-    const StatusServiceUnavailable            = 503; // RFC 7231, 6.6.4
-    const StatusGatewayTimeout                = 504; // RFC 7231, 6.6.5
-    const StatusHTTPVersionNotSupported       = 505; // RFC 7231, 6.6.6
-    const StatusVariantAlsoNegotiates         = 506; // RFC 2295, 8.1
-    const StatusInsufficientStorage           = 507; // RFC 4918, 11.5
-    const StatusLoopDetected                  = 508; // RFC 5842, 7.2
-    const StatusNotExtended                   = 510; // RFC 2774, 7
-    const StatusNetworkAuthenticationRequired = 511; // RFC 6585, 6
+    const StatusInternalServerError           = \DCarbone\Go\HTTP\StatusInternalServerError;
+    const StatusNotImplemented                = \DCarbone\Go\HTTP\StatusNotImplemented;
+    const StatusBadGateway                    = \DCarbone\Go\HTTP\StatusBadGateway;
+    const StatusServiceUnavailable            = \DCarbone\Go\HTTP\StatusServiceUnavailable;
+    const StatusGatewayTimeout                = \DCarbone\Go\HTTP\StatusGatewayTimeout;
+    const StatusHTTPVersionNotSupported       = \DCarbone\Go\HTTP\StatusHTTPVersionNotSupported;
+    const StatusVariantAlsoNegotiates         = \DCarbone\Go\HTTP\StatusVariantAlsoNegotiates;
+    const StatusInsufficientStorage           = \DCarbone\Go\HTTP\StatusInsufficientStorage;
+    const StatusLoopDetected                  = \DCarbone\Go\HTTP\StatusLoopDetected;
+    const StatusNotExtended                   = \DCarbone\Go\HTTP\StatusNotExtended;
+    const StatusNetworkAuthenticationRequired = \DCarbone\Go\HTTP\StatusNetworkAuthenticationRequired;
 
-    const MethodGet     = 'GET';
-    const MethodHead    = 'HEAD';
-    const MethodPost    = 'POST';
-    const MethodPut     = 'PUT';
-    const MethodPatch   = 'PATCH';
-    const MethodDelete  = 'DELETE';
-    const MethodConnect = 'CONNECT';
-    const MethodOptions = 'OPTIONS';
-    const MethodTrace   = 'TRACE';
-
-    /** @var array */
-    private static $statusTexts = [
-        self::StatusContinue           => "Continue",
-        self::StatusSwitchingProtocols => "Switching Protocols",
-        self::StatusProcessing         => "Processing",
-
-
-        self::StatusOK                   => "OK",
-        self::StatusCreated              => "Created",
-        self::StatusAccepted             => "Accepted",
-        self::StatusNonAuthoritativeInfo => "Non-Authoritative Information",
-        self::StatusNoContent            => "No Content",
-        self::StatusResetContent         => "Reset Content",
-        self::StatusPartialContent       => "Partial Content",
-        self::StatusMultiStatus          => "Multi-Status",
-        self::StatusAlreadyReported      => "Already Reported",
-        self::StatusIMUsed               => "IM Used",
-
-        self::StatusMultipleChoices   => "Multiple Choices",
-        self::StatusMovedPermanently  => "Moved Permanently",
-        self::StatusFound             => "Found",
-        self::StatusSeeOther          => "See Other",
-        self::StatusNotModified       => "Not Modified",
-        self::StatusUseProxy          => "Use Proxy",
-        self::StatusTemporaryRedirect => "Temporary Redirect",
-        self::StatusPermanentRedirect => "Permanent Redirect",
-
-        self::StatusBadRequest                   => "Bad Request",
-        self::StatusUnauthorized                 => "Unauthorized",
-        self::StatusPaymentRequired              => "Payment Required",
-        self::StatusForbidden                    => "Forbidden",
-        self::StatusNotFound                     => "Not Found",
-        self::StatusMethodNotAllowed             => "Method Not Allowed",
-        self::StatusNotAcceptable                => "Not Acceptable",
-        self::StatusProxyAuthRequired            => "Proxy Authentication Required",
-        self::StatusRequestTimeout               => "Request Timeout",
-        self::StatusConflict                     => "Conflict",
-        self::StatusGone                         => "Gone",
-        self::StatusLengthRequired               => "Length Required",
-        self::StatusPreconditionFailed           => "Precondition Failed",
-        self::StatusRequestEntityTooLarge        => "Request Entity Too Large",
-        self::StatusRequestURITooLong            => "Request URI Too Long",
-        self::StatusUnsupportedMediaType         => "Unsupported Media Type",
-        self::StatusRequestedRangeNotSatisfiable => "Requested Range Not Satisfiable",
-        self::StatusExpectationFailed            => "Expectation Failed",
-        self::StatusTeapot                       => "I'm a teapot",
-        self::StatusUnprocessableEntity          => "Unprocessable Entity",
-        self::StatusLocked                       => "Locked",
-        self::StatusFailedDependency             => "Failed Dependency",
-        self::StatusUpgradeRequired              => "Upgrade Required",
-        self::StatusPreconditionRequired         => "Precondition Required",
-        self::StatusTooManyRequests              => "Too Many Requests",
-        self::StatusRequestHeaderFieldsTooLarge  => "Request Header Fields Too Large",
-        self::StatusUnavailableForLegalReasons   => "Unavailable For Legal Reasons",
-
-        self::StatusInternalServerError           => "Internal Server Error",
-        self::StatusNotImplemented                => "Not Implemented",
-        self::StatusBadGateway                    => "Bad Gateway",
-        self::StatusServiceUnavailable            => "Service Unavailable",
-        self::StatusGatewayTimeout                => "Gateway Timeout",
-        self::StatusHTTPVersionNotSupported       => "HTTP Version Not Supported",
-        self::StatusVariantAlsoNegotiates         => "Variant Also Negotiates",
-        self::StatusInsufficientStorage           => "Insufficient Storage",
-        self::StatusLoopDetected                  => "Loop Detected",
-        self::StatusNotExtended                   => "Not Extended",
-        self::StatusNetworkAuthenticationRequired => "Network Authentication Required",
-    ];
+    const MethodGet     = \DCarbone\Go\HTTP\MethodGet;
+    const MethodHead    = \DCarbone\Go\HTTP\MethodHead;
+    const MethodPost    = \DCarbone\Go\HTTP\MethodPost;
+    const MethodPut     = \DCarbone\Go\HTTP\MethodPut;
+    const MethodPatch   = \DCarbone\Go\HTTP\MethodPatch;
+    const MethodDelete  = \DCarbone\Go\HTTP\MethodDelete;
+    const MethodConnect = \DCarbone\Go\HTTP\MethodConnect;
+    const MethodOptions = \DCarbone\Go\HTTP\MethodOptions;
+    const MethodTrace   = \DCarbone\Go\HTTP\MethodTrace;
 
     /**
-     * @param int $status
+     * @param int $code
      * @return string
      */
-    public static function StatusText(int $status): string
+    public static function StatusText(int $code): string
     {
-        return self::$statusTexts[$status] ?? '';
+        return StatusText($code);
     }
 }
