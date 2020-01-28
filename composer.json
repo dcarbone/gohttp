@@ -23,8 +23,7 @@
       "DCarbone\\Go\\HTTP\\": "src/"
     },
     "files": [
-      "src/constants.php",
-      "src/funcs.php"
+      "src/http_ns.php"
     ]
   }
 }

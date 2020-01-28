@@ -91,4 +91,13 @@ class HTTP
     {
         return StatusText($code);
     }
+
+    /**
+     * @param int $code
+     * @return string
+     */
+    public static function StatusName(int $code): string
+    {
+        return StatusName($code);
+    }
 }
