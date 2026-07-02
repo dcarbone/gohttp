@@ -25,7 +25,7 @@ on:
       - 'composer.json'
       - 'composer.lock'
       - 'phpunit.xml'
-      - '.github/workflows/tests.yaml'
+      - '.github/workflows/tests.yml'
   push:
     branches:
       - main
@@ -34,7 +34,7 @@ on:
       - 'composer.json'
       - 'composer.lock'
       - 'phpunit.xml'
-      - '.github/workflows/tests.yaml'
+      - '.github/workflows/tests.yml'
 
 jobs:
   phpunit:

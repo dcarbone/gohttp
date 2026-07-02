@@ -94,7 +94,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     }
 
     /**
-     * @return string|array
+     * @return string[]|false
      */
     public function current(): mixed
     {
@@ -107,7 +107,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function key(): mixed
     {

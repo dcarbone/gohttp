@@ -99,6 +99,23 @@ final class ValuesTest extends TestCase
         self::assertSame('foo=bar&foo=baz&abc', (string)$values);
     }
 
+    public function testIteratorCurrentAndKeyOnInvalidPosition(): void
+    {
+        $empty = new Values();
+        self::assertFalse($empty->current());
+        self::assertNull($empty->key());
+        self::assertFalse($empty->valid());
+
+        $values = new Values(['foo' => 'bar']);
+        self::assertSame(['bar'], $values->current());
+        self::assertSame('foo', $values->key());
+
+        $values->next();
+        self::assertFalse($values->current());
+        self::assertNull($values->key());
+        self::assertFalse($values->valid());
+    }
+
     public function testJsonSerializationReturnsInternalMapShape(): void
     {
         $values = new Values(['foo' => 'bar']);
