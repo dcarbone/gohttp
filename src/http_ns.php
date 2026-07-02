@@ -185,7 +185,7 @@ namespace DCarbone\Go\HTTP {
         StatusUpgradeRequired              => 'UpgradeRequired',
         StatusPreconditionRequired         => 'PreconditionRequired',
         StatusTooManyRequests              => 'TooManyRequests',
-        StatusRequestHeaderFieldsTooLarge  => 'RequestHeaderFilesTooLarge',
+        StatusRequestHeaderFieldsTooLarge  => 'RequestHeaderFieldsTooLarge',
         StatusUnavailableForLegalReasons   => 'UnavailableForLegalReasons',
 
         StatusInternalServerError           => 'InternalServerError',
