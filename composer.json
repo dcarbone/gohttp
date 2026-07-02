@@ -35,6 +35,6 @@
     }
   },
   "scripts": {
-    "test": "phpunit --configuration phpunit.xml.dist"
+    "test": "phpunit --configuration phpunit.xml"
   }
 }
