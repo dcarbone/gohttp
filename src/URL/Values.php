@@ -8,8 +8,8 @@ namespace DCarbone\Go\HTTP\URL;
  */
 class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
 {
-    /** @var array */
-    private $values = [];
+    /** @var array<string, string[]> */
+    private array $values = [];
 
     /**
      * Values constructor.
@@ -20,6 +20,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
         foreach ($seed as $k => $v) {
             $this->add($k, $v);
         }
+
     }
 
     /**
@@ -50,7 +51,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
      * @param string $key
      * @param string $value
      */
-    public function set(string $key, string $value)
+    public function set(string $key, string $value): void
     {
         $this->values[$key] = [$value];
     }
@@ -59,7 +60,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
      * @param string $key
      * @param string $value
      */
-    public function add(string $key, string $value)
+    public function add(string $key, string $value): void
     {
         if (isset($this->values[$key])) {
             $this->values[$key][] = $value;
@@ -71,7 +72,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     /**
      * @param string $key
      */
-    public function delete(string $key)
+    public function delete(string $key): void
     {
         unset($this->values[$key]);
     }
@@ -95,12 +96,12 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     /**
      * @return string|array
      */
-    public function current()
+    public function current(): mixed
     {
         return current($this->values);
     }
 
-    public function next()
+    public function next(): void
     {
         next($this->values);
     }
@@ -108,7 +109,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     /**
      * @return string
      */
-    public function key()
+    public function key(): mixed
     {
         return key($this->values);
     }
@@ -116,12 +117,12 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     /**
      * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return null !== key($this->values);
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         reset($this->values);
     }
@@ -130,8 +131,11 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
      * @param mixed $offset
      * @return bool
      */
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
+        if (!is_string($offset)) {
+            return false;
+        }
         return isset($this->values[$offset]);
     }
 
@@ -139,32 +143,32 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
      * @param string $offset
      * @return string
      */
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
-        return $this->get($offset);
+        return $this->get(self::assertStringOffset($offset));
     }
 
     /**
      * @param string $offset
      * @param string $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
-        $this->set($offset, $value);
+        $this->set(self::assertStringOffset($offset), self::assertStringValue($value));
     }
 
     /**
      * @param string $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
-        $this->delete($offset);
+        $this->delete(self::assertStringOffset($offset));
     }
 
     /**
      * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->values;
     }
@@ -172,7 +176,7 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $str = '';
         foreach ($this->values as $k => $vs) {
@@ -197,5 +201,23 @@ class Values implements \Iterator, \ArrayAccess, \Countable, \JsonSerializable
     protected function encode(string $v): string
     {
         return $v;
+    }
+
+    private static function assertStringOffset(mixed $offset): string
+    {
+        if (!is_string($offset)) {
+            throw new \TypeError(sprintf('Expected offset to be string, got %s', get_debug_type($offset)));
+        }
+
+        return $offset;
+    }
+
+    private static function assertStringValue(mixed $value): string
+    {
+        if (!is_string($value)) {
+            throw new \TypeError(sprintf('Expected value to be string, got %s', get_debug_type($value)));
+        }
+
+        return $value;
     }
 }
